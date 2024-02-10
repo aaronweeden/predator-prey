@@ -347,6 +347,11 @@ function initGraph() {
       animation: {
         duration: 0
       },
+      elements: {
+        line: {
+          tension: 0
+        }
+      },
       legend: {
         position: "right"
       },
