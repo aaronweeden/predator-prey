@@ -1,0 +1,91 @@
+body {
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  height: 40px;
+  padding: 0;
+  width: 40px;
+}
+
+.column {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.column > * {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#fps-slider {
+  margin: 10px auto;
+  width: 200px;
+}
+
+#fps-slider-handle {
+  text-align: center;
+  width: 50px;
+}
+
+#fps-title {
+  text-align: center;
+  width: 200px;
+}
+
+#graph {
+  border: 1px solid black;
+  margin: 0 10px;
+}
+
+h3 {
+  text-align: left;
+}
+
+input {
+  height: 38px;
+  text-align: center;
+  width: 38px;
+}
+
+.input-div {
+  text-align: left;
+}
+
+.input-div div {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+
+#key {
+  text-align: left;
+  width: 80px;
+  vertical-align: top;
+}
+
+li {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}
+
+#predator-key,
+#prey-key {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+
+#time-output {
+  display: inline-block;
+}
+
+#world {
+  border: 1px solid black;
+  display: inline-block;
+}

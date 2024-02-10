@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Predator-Prey Agent Model</title>
+    <link href="lib/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="predator-prey.css" rel="stylesheet"/>
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/Chart.min.js"></script>
+    <script src="predator-prey.js"></script>
+  </head>
+  <body>
+    <h1>Predator-Prey Agent Model</h1>
+    <h4>(Description at the bottom)</h4>
+    <div class="column">
+      <canvas id="world"></canvas>
+      <div id="key">
+        Key:
+        <div>
+          <div id="predator-key"></div> Predator
+        </div>
+        <div>
+          <div id="prey-key"></div> Prey
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <canvas id="graph" width="384" height="256"></canvas>
+    </div>
+    <div class="column">
+      <div>
+        <button id="start-button" onclick="start();">Start</button>
+        <button id="step-button" onclick="step();">Step</button>
+        <button onclick="reset();">Reset</button>
+      </div>
+      <div>
+        Time steps elapsed:
+        <div id="time-output"></div>
+      </div>
+      <div>
+        Frames per second:
+        <div id="fps-slider">
+          <div id="fps-slider-handle" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class="input-div">
+        Number of rows:
+        <input id="row-count-input"/>
+        <div id="row-count-output"></div>
+      </div>
+      <div class="input-div">
+        Number of columns:
+        <input id="column-count-input"/>
+        <div id="column-count-output"></div>
+      </div>
+      <div class="input-div">
+        Cell width (pixels):
+        <input id="cell-width-input"/>
+        <div id="cell-width-output"></div>
+      </div>
+      <div class="input-div">
+        Cell height (pixels):
+        <input id="cell-height-input"/>
+        <div id="cell-height-output"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="input-div">
+        Initial number of predators:
+        <input id="predator-count-input"/>
+        <div id="predator-count-output"></div>
+      </div>
+      <div class="input-div">
+        Initial number of prey:
+        <input id="prey-count-input"/>
+        <div id="prey-count-output"></div>
+      </div>
+      <div class="input-div">
+        Amount of food to regrow per cell per time step:
+        <input id="food-regrow-input"/>
+        <div id="food-regrow-output"></div>
+      </div>
+    </div>
+    <h2>Model Description</h2>
+    <h3>Initial State</h3>
+    <p>In a rectangular world, there are cells and two types of agents:
+       predators and prey. Initially, and each time the model is reset, the
+       world is created by filling each cell with the maximum amount of food.
+       A certain number of predators and prey are randomly placed in the cells
+       with a certain amount of food initially in their bellies. At no point
+       during the simulation can two agents occupy the same cell. The state of
+       the model is initially drawn on the screen.</p>
+    <h3>During Each Time Step</h3>
+    <p>During each time step of the simulation,</p>
+    <ol>
+      <li>each cell regrows food by a certain amount;</li>
+      <li>each predator, if it is hungry, looks for prey in the 4
+          nearest-neighboring cells. If it finds one, it eats it;</li>
+      <li>each surviving prey, if it is hungry, eats food from the cell it
+          occupies;</li>
+      <li>each agent looks for another agent of its
+          own species in its 4 nearest-neighboring cells, and if it finds one,
+          both agents have not reproduced yet in this time step,
+          both are both old enough, there is an open cell next to the agent
+          that was looking (in one of its 4 nearest-neighboring cells), and
+          with some percent chance, then they reproduce to create a new agent
+          with a certain amount of food in their belly and placed in one of the
+          empty nearest-neighboring cells next to the agent that was
+          looking;</li>
+      <li>all agents move randomly to one of their empty, nearest-neighboring
+          cells;</li>
+      <li>all agent get hungry and lose a certain amount of the food in their
+          bellies, whereby if they have no food left in their bellies they
+          die of starvation;</li>
+      <li>all agents get older, and if they are too old they die of old age;
+          and finally</li>
+      <li>the current state of the model is drawn on the screen.</li>
+    </ol>
+    <h3>Final State</h3>
+    <p>The simulation runs indefinitely, until the stop button is clicked.</p>
+    <h4>&copy; Shodor 2017</h4>
+  </body>
+</html>
