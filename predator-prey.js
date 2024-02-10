@@ -344,6 +344,9 @@ function initGraph() {
       datasets: [FoodDataset, PredatorDataset, PreyDataset]
     },
     options: {
+      animation: {
+        duration: 0
+      },
       legend: {
         position: "right"
       },
